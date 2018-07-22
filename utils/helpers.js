@@ -140,7 +140,7 @@ export function getMetricMetaInfo(metric) {
   }
 
   // if you do pass an argument 'metric' than the function will return only that specific metric
-  return type metric === 'undefined'
+  return typeof metric === 'undefined'
     ? info
     : info[metric]
 }

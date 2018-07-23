@@ -7,8 +7,7 @@ import DateHeader from './DateHeader'
 
 const SubmitBtn = ({ onPress }) => {
   return (
-    <TouchableOpacity 
-      onPress={onPress}>
+    <TouchableOpacity onPress={onPress}>
       <Text>Submit</Text>
     </TouchableOpacity>
   )
@@ -24,23 +23,23 @@ export default class AddEntry extends Component {
     eat: 0
   }
 
-  increment = (metric) => {
+  onIncrement = (metric) => {
     const { max, step } = getMetricMetaInfo(metric)
     this.setState((currentState) => {
       const count = currentState[metric] + step
       return {
-        ...state,
+        ...currentState,
         [metric]: count > max ? max : count
       }
     })
   }
 
-  decrement = (metric) => {
+  onDecrement = (metric) => {
     const { step } = getMetricMetaInfo(metric)
     this.setState((currentState) => {
       const count = currentState[metric] - step
       return {
-        ...state,
+        ...currentState,
         [metric]: count < 0 ? 0 : count
       }
     })
@@ -90,8 +89,8 @@ export default class AddEntry extends Component {
                 />
                 : <UdaciSteppers
                   value={value}
-                  onIncrement={() => this.increment(key)}
-                  onDecrement={() => this.decrement(key)}
+                  onIncrement={() => this.onIncrement(key)}
+                  onDecrement={() => this.onDecrement(key)}
                   {...rest}
                 />
 

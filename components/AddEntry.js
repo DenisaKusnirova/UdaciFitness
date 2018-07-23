@@ -14,6 +14,7 @@ const SubmitBtn = ({ onPress }) => {
   )
 }
 
+// ADD ENTRY COMPONENT
 export default class AddEntry extends Component {
   state = {
     run: 0,
